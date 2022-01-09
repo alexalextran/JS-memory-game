@@ -83,10 +83,29 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: all 1s ;
+        animation: linear 5s;
     }
 
     .green{
         background-color: greenyellow;
     }
 
-    
+    @keyframes background{
+        0%{
+            background-color: rgb(0,162,226);
+        }
+
+        25%{
+            background-color: greenyellow;
+        }
+
+        50%{
+            background-color: greenyellow;
+        }
+
+        100%{
+            background-color: rgb(0,162,226);
+        }
+        
+    }

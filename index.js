@@ -1,8 +1,9 @@
 var page = 0
 var box_chosen = []
 
+
 function startgame(){
-    var difficulty = 20
+    var difficulty = 7
     
 
     for(let i = 1; i <= 36; i++){
@@ -14,7 +15,7 @@ function startgame(){
        
 
           breakme:  if (condition == difficulty){
-                console.log(i)
+               
                 
                 if(box_chosen.indexOf(i) != -1){
                     console.log('hehe haw')
@@ -22,36 +23,29 @@ function startgame(){
                 }
 
 
-                
                box_chosen.push(i)
-                box_selector.classList += " green"
+
+               box_selector.style.animationName = "background"
+               
+                
                 page++
-              
             }
 
 
              if (page == difficulty){
-           
-            
-           
             break
-        }
-
-            
+        }      
         }
 
         
            if(page != difficulty){
                 startgame()
                 
-            }
-
-     
-
-    
-            console.log(box_chosen)
-    
+            } 
 }
+
+
+
 
 function random(){
 var random = Math.ceil((Math.random()*36))
@@ -62,4 +56,5 @@ var random = Math.ceil((Math.random()*36))
 
 
 }
+
 
