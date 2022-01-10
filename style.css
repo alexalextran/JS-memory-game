@@ -83,7 +83,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: all 1s ;
+        transition: all 500ms ;
         animation: linear 5s ease-in;
         pointer-events: none;
     }

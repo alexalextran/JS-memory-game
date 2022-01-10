@@ -9,7 +9,7 @@ var level = 1
 var all_boxes =  document.getElementsByClassName('box')
 
 function startgame(){
-console.log(box_chosen)
+
 
 box_random()
 
@@ -25,7 +25,7 @@ console.log(level)
 
 
 
-console.log(box_chosen)
+
 
 
 
@@ -114,36 +114,48 @@ else{
 }
 
 
+
 if(correct_boxes == difficulty_floor){
-    for(let i = 0; i < boxes; i++){
-        all_boxes[i].style.cursor = "auto"
-        all_boxes[i].style.pointerEvents = "none";
-    }
+    reset()
+    setTimeout(startgame, 4000)
+}
 
-    setTimeout(() => {  
-
-        for(let i = 0; i < boxes; i++){
-          
-            all_boxes[i].style.backgroundColor = 'rgb(' + [0,162,226].join(',') + ')';
-            all_boxes[i].style.animationName = "none"
-    
-        }
-    
-        page = 0
-        correct_boxes = 0
-        box_chosen = []
-        
-    
-        difficulty = difficulty + difficulty_adjuster
-         difficulty_floor = Math.floor(difficulty)
-        level++
-
-
-     }, 2000);
  
 
-    setTimeout(startgame, 4000)
-    
+   
 }
 
-}
+
+
+
+function reset(){
+   
+        for(let i = 0; i < boxes; i++){
+            all_boxes[i].style.cursor = "auto"
+            all_boxes[i].style.pointerEvents = "none";
+        }
+    
+        setTimeout(() => {  
+    
+            for(let i = 0; i < boxes; i++){
+              
+                all_boxes[i].style.backgroundColor = 'rgb(' + [0,162,226].join(',') + ')';
+                all_boxes[i].style.animationName = "none"
+        
+            }
+        
+            page = 0
+            correct_boxes = 0
+            box_chosen = []
+            
+        
+            difficulty = difficulty + difficulty_adjuster
+             difficulty_floor = Math.floor(difficulty)
+            level++
+    
+    
+         }, 2000);
+
+         
+    
+        }
