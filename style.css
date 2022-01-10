@@ -85,11 +85,13 @@
         align-items: center;
         transition: all 1s ;
         animation: linear 5s ease-in;
+        pointer-events: none;
     }
 
     .pointer .box 
     {
         cursor: pointer;
+        pointer-events: all;
     }
 
     .green{
