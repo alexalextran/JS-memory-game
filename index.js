@@ -1,14 +1,19 @@
 var page = 0
 var box_chosen = []
-var difficulty = 3
+var difficulty = 1
+var difficulty_floor = Math.floor(difficulty)
 var difficulty_adjuster = 0.5
 var correct_boxes = 0
+const boxes = 36
+var level = 1
+var all_boxes =  document.getElementsByClassName('box')
 
 function startgame(){
-
+console.log(box_chosen)
 
 box_random()
 
+console.log(level)
 
 
 
@@ -20,10 +25,11 @@ box_random()
 
 
 
+console.log(box_chosen)
 
 
 
-
+   
 
 }
 
@@ -34,12 +40,13 @@ function box_random(){
   
     
 
-    for(let i = 1; i <= 36; i++){
+    for(let i = 1; i <= boxes; i++){
 
         var box_selector = document.querySelector(`.box${i}`)
         var condition = random()
+
       
-          breakme:  if (condition == difficulty){
+          breakme:  if (condition == difficulty_floor){
                 
                 if(box_chosen.indexOf(i) != -1){
                     
@@ -48,10 +55,11 @@ function box_random(){
 
                box_chosen.push(i)
                box_selector.style.animationName = "background"
+               
                 page++
             }
 
-             if (page == difficulty){
+             if (page == difficulty_floor){
             break
         }  
         
@@ -60,8 +68,9 @@ function box_random(){
         }
 
         
-           if(page != difficulty){
+           if(page != difficulty_floor){
             box_random()
+            
         
             } 
 }
@@ -79,7 +88,11 @@ var random = Math.ceil((Math.random()*36))
 
 
 function cursor(){
-    document.body.classList += "pointer"
+    for(let i = 0; i < boxes; i++){
+       
+        all_boxes[i].style.cursor = "pointer"
+        all_boxes[i].style.pointerEvents = "all";
+    }
     clearTimeout()
 }
 
@@ -92,6 +105,8 @@ var box_clicked = parseInt((event.target.className).slice(7))
 
 if (box_chosen.includes(box_clicked)){              
     box_clicked_HTML[0].style.backgroundColor = "rgb(" + 0 + "," + 171 + "," + 28 + ")";
+    box_clicked_HTML[0].style.cursor = "auto"
+    box_clicked_HTML[0].style.pointerEvents = "none";
     correct_boxes++
 }
 else{
@@ -99,13 +114,36 @@ else{
 }
 
 
-if(correct_boxes == difficulty){
-
-    for(let i = 1; i < 36; i++){
-        var all_boxes = document.querySelectorAll('.box')
-        all_boxes[i].style.backgroundColor = 'rgb(' + [0,162,226].join(',') + ')';
-        document.body.classList.remove("pointer")
+if(correct_boxes == difficulty_floor){
+    for(let i = 0; i < boxes; i++){
+        all_boxes[i].style.cursor = "auto"
+        all_boxes[i].style.pointerEvents = "none";
     }
+
+    setTimeout(() => {  
+
+        for(let i = 0; i < boxes; i++){
+          
+            all_boxes[i].style.backgroundColor = 'rgb(' + [0,162,226].join(',') + ')';
+            all_boxes[i].style.animationName = "none"
+    
+        }
+    
+        page = 0
+        correct_boxes = 0
+        box_chosen = []
+        
+    
+        difficulty = difficulty + difficulty_adjuster
+         difficulty_floor = Math.floor(difficulty)
+        level++
+
+
+     }, 2000);
+ 
+
+    setTimeout(startgame, 4000)
+    
 }
 
 }
