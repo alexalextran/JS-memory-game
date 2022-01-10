@@ -3,6 +3,16 @@ var box_chosen = []
 
 
 function startgame(){
+box_random()
+document.body.classList += "pointer"
+
+console.log (box)
+console.log(box_chosen)
+}
+
+
+
+function box_random(){
     var difficulty = 7
     
 

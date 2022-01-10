@@ -84,7 +84,12 @@
         justify-content: center;
         align-items: center;
         transition: all 1s ;
-        animation: linear 5s;
+        animation: linear 5s ease-in;
+    }
+
+    .pointer .box 
+    {
+        cursor: pointer;
     }
 
     .green{
@@ -102,6 +107,10 @@
 
         50%{
             background-color: greenyellow;
+        }
+
+        60%{
+            background-color: rgb(0,162,226);
         }
 
         100%{
