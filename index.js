@@ -17,7 +17,7 @@ remaining_boxes = difficulty_floor
 
 document.getElementById("level").innerHTML = 
 `
-Level<span>${difficulty}</span>
+<h1>Level</h1> <h1 class="special_number">${difficulty.toFixed(1)}</h1>
 `
 
 
@@ -31,7 +31,7 @@ Level<span>${difficulty}</span>
 
 document.getElementById("remaining").innerHTML = 
 `
-Remaining Boxes<span>${remaining_boxes}</span>
+Remaining Boxes <span class="number">${remaining_boxes}</span>
 `
 
 
@@ -107,6 +107,8 @@ function cursor(){
     clearTimeout()
 }
 
+
+
 function check_box(event){
 var box_clicked_name = (event.target.className)
 var box_clicked_HTML = document.getElementsByClassName(`${box_clicked_name}`)
@@ -127,7 +129,7 @@ else{
 
 document.getElementById("remaining").innerHTML = 
 `
-Remaining Boxes<span>${remaining_boxes}</span>
+ Remaining Boxes <span class="number">${remaining_boxes}</span>
 `
 
 
