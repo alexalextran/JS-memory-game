@@ -6,6 +6,7 @@
         padding: 0;
         box-sizing: border-box;
         font-family: 'Roboto', sans-serif ;
+        color: white
     }
 
 
@@ -25,6 +26,7 @@
         height: 100vh;
         width: 100%;
         background-color: rgb(99,98,203);
+        
      
     }
 
@@ -32,14 +34,22 @@
     #game__wrapper{
         width: 50%;
         min-width: 900px;
-        height: 90%;
-        background-color: rgb(230,232,244);
+        height: 95%;
+        background-color: rgb(50,54,57);
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
 
      
+    }
+
+
+
+    .gameover .box,.gameover #game__wrapper{
+        visibility: hidden;
+        opacity: 0;
+        transition: all 2s;
     }
 
     #game__header{
@@ -50,23 +60,151 @@
         align-items: center;
         width: 100%;
         height: 100%;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
     
     }
 
     #game__body--wrapper{
-        background-color: rgb(230,232,244);
+        background-color: rgb(50,54,57);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+       
     }
 
     #game__body{
+        
         display: grid;
         grid-template-columns: repeat(6, 100px) ;
         grid-template-rows: repeat(6, 100px);
         column-gap: 20px;
         row-gap: 20px;
         padding-bottom: 32px;
+        margin-bottom: 50px;
+       
+       
 
     }
+    
+
+    #Start__game{
+        position: absolute;
+        border-radius: 3px;
+        font-size: 20px;
+        width: 50%;
+        color: #FFF;
+        text-decoration: none;
+        background-color: #2ecc71;
+        border: none;
+        border-bottom: 5px solid #27ae60;
+        text-shadow: 0px -2px #27ae60;
+        -webkit-transition: all 0.1s;
+        transition: all 0.1s;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 20px;
+        
+    }
+     #Start__game:active {
+        
+        border-bottom: 1px solid #2ecc71;
+       }
+
+    .gameover #game__over--screen{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    #game__over--screen{
+        position: absolute;
+        visibility: visible;
+        opacity: 1;
+        width: 600px;
+        background-color: rgb(50,54,57);
+        height: 300px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        font-weight: 500;
+        transition: all 2s;
+        flex-direction: column;
+    }
+
+    .stats{
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .stats__scores{
+        color: rgb(242,225,110);
+    }
+    
+    .retry{
+        font-size: 40px;
+        display: flex;
+        margin-top: 15px;
+       
+    }
+
+    .cta {
+        position: relative;
+        margin: auto;
+        padding: 12px 18px;
+        transition: all 0.2s ease;
+        border: none;
+        background: none;
+        cursor: pointer;
+       }
+       
+       .cta:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        border-radius: 50px;
+        background: #b1dae7;
+        width: 45px;
+        height: 45px;
+        transition: all 0.3s ease;
+       }
+       
+       .cta span {
+        position: relative;
+        font-family: "Ubuntu", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: #1176db;
+       }
+       
+       .cta svg {
+        position: relative;
+        top: 0;
+        margin-left: 10px;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke: #1176db;
+        stroke-width: 2;
+        transform: translateX(-5px);
+        transition: all 0.3s ease;
+       }
+       
+       .cta:hover:before {
+        width: 100%;
+        background: #b1dae7;
+       }
+       
+       .cta:hover svg {
+        transform: translateX(0);
+       }
+       
+       .cta:active {
+        transform: scale(0.95);
+       }
 
 
     /*
@@ -99,7 +237,7 @@
     }
 
     .green{
-        background-color: greenyellow;
+        background-color: rgb(242,225,110);
     }
 
     @keyframes background{
@@ -108,11 +246,11 @@
         }
 
         25%{
-            background-color: greenyellow;
+            background-color: rgb(242,225,110);
         }
 
         50%{
-            background-color: greenyellow;
+            background-color: rgb(242,225,110);
         }
 
         60%{

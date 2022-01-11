@@ -11,138 +11,152 @@
 <body>
 
 
-   <header>
-       header text header text
-   </header>
 
    <section id="landing__page">
- 
+    
+
+    <div id="game__over--screen">
+        <h1>Game Over</h1>
+        <button class="cta" onclick="reload()">
+            <span>Retry?</span>
+            <svg width="15px" height="10px" viewBox="0 0 13 10">
+              <path d="M1,5 L11,5"></path>
+              <polyline points="8 1 12 5 8 9"></polyline>
+            </svg>
+          </button>
+       <div class="stats">
+           <p>Congrats, You made it up to <span class="stats__scores">level 2</span></p>
+           <P>and you did it in <span class="stats__scores">10 seconds</span>!</P>
+       </div>
+
+    </div>
+   
 
         <div id="game__wrapper">
             <div id="game__header">
 
-                <div id="level" style="position: relative;"><h1>Level</h1> <h1 class="special_number" style="color: black;">0</h1></div>
-                <h1 id="remaining" style="position: relative;">Remaining Boxes <span class="number" style="color: black;">0</span></h1>
+                <div id="level" style="position: relative;"><h1>Level</h1> <h1 class="special_number" style="color: rgb(255, 255, 255);">0</h1></div>
+                <h1 id="remaining" style="position: relative;">Remaining Boxes <span class="number" style="color: rgb(255, 255, 255);">0</span></h1>
                 <h1>Lives</h1>
                 <h1>Time</h1>
                   
-            </div>
+            </div >
                 <div id="game__body--wrapper">
                 <div id="game__body">
-                    <div onclick="check_box(event)" class = "box box1">
-                        box
+                    <div onclick="check_box(event)" class ="box box1">
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box2">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box3">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box4">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box5">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box6">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box7">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box8">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box9">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box10">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box11">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box12">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box13">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box14">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box15">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box16">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box17">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box18">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box19">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box20">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box21">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box22">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box23">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box24">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box25">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box26">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box27">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box28">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box29">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box30">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box31">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box32">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box33">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box34">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box35">
-                        box
+                     
                     </div>
                     <div onclick="check_box(event)" class="box box36">
-                        box
+                     
                     </div>
             
                 </div>
 
 
-                <button onclick="startgame()">
-                    Start Here
+                <button id="Start__game" onclick="startgame()">
+                    Start Game
                 </button>
 
 

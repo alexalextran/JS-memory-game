@@ -8,6 +8,7 @@ var correct_boxes = 0
 const boxes = 36
 var level = 1
 var all_boxes =  document.getElementsByClassName('box')
+var lives = 3
 
 function startgame(){
 
@@ -36,7 +37,7 @@ Remaining Boxes <span class="number">${remaining_boxes}</span>
 
 
 
-
+console.log(lives)
 
 
 
@@ -117,14 +118,21 @@ var box_clicked = parseInt((event.target.className).slice(7))
 
 
 if (box_chosen.includes(box_clicked)){              
-    box_clicked_HTML[0].style.backgroundColor = "rgb(" + 0 + "," + 171 + "," + 28 + ")";
+    box_clicked_HTML[0].style.backgroundColor = "rgb(" + 46 + "," + 204 + "," + 113 + ")";
     box_clicked_HTML[0].style.cursor = "auto"
     box_clicked_HTML[0].style.pointerEvents = "none";
     correct_boxes++
     remaining_boxes--
 }
 else{
-    box_clicked_HTML[0].style.backgroundColor = 'rgb(' + [242,0,0].join(',') + ')';
+    box_clicked_HTML[0].style.backgroundColor = 'rgb(' + [242,98,97].join(',') + ')';
+    lives--
+    if(lives == 0){
+        console.log('lost')
+        reset()
+        document.body.classList += "gameover"
+    }
+    console.log(lives)
 }
 
 document.getElementById("remaining").innerHTML = 
@@ -169,6 +177,7 @@ function reset(){
             page = 0
             correct_boxes = 0
             box_chosen = []
+            lives = 3
             
         
             difficulty = difficulty + difficulty_adjuster
@@ -180,4 +189,9 @@ function reset(){
 
          
     
+        }
+
+
+        function reload() {
+            reload = location.reload();
         }
