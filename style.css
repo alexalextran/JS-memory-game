@@ -127,9 +127,9 @@
 
     .special_number{
         color: brown;
-        animation: fade 2s;
+        animation: fade 500ms;
         position: absolute;
-       right: -45px;
+       right: -55px;
        top: 0px;
       
        
@@ -137,9 +137,9 @@
 
     .number{
         color: brown;
-        animation: fade 2s;
+        animation: fade 500ms;
         position: absolute;
-        right: -25px;
+        right: -35px;
         top: 0px;
     }
 
