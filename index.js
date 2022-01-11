@@ -10,6 +10,39 @@ var level = 1
 var all_boxes =  document.getElementsByClassName('box')
 var lives = 3
 
+
+var
+  sec = 0,
+  timerOn = 0;
+var msecVar, secVar, minVar, hourVar;
+
+
+
+function setSec() {
+    sec = sec + 1;
+    msecVar = setTimeout(setSec, 1000);
+
+
+    document.getElementById("sec").innerHTML = `<p style="left: -30px; position: absolute;">${sec}</p> <p style="margin-left: 10px;">Seconds</p>`
+  
+  
+}
+
+
+function start() {
+  if (!timerOn) {
+    timerOn = 1;
+    setSec();
+  }
+}
+
+
+function stop() {
+    clearTimeout(msecVar);
+    timerOn = 0;
+  }
+
+
 function startgame(){
 
 
@@ -126,10 +159,22 @@ if (box_chosen.includes(box_clicked)){
 }
 else{
     box_clicked_HTML[0].style.backgroundColor = 'rgb(' + [242,98,97].join(',') + ')';
+    var hearts = document.getElementsByClassName(`heart${lives}`)
     lives--
+    hearts[0].innerHTML =`
+    <svg class="heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon line" width="48" height="48"><path id="primary" d="M19.57,5.44a4.91,4.91,0,0,1,0,6.93L12,20,4.43,12.37A4.91,4.91,0,0,1,7.87,4a4.9,4.9,0,0,1,3.44,1.44,4.46,4.46,0,0,1,.69.88,4.46,4.46,0,0,1,.69-.88,4.83,4.83,0,0,1,6.88,0Z" style="fill: none; stroke: rgb(255, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></svg>
+    `
+
+    
     if(lives == 0){
         console.log('lost')
+        stop()
         reset()
+        document.getElementById("stats").innerHTML = 
+        `
+        <p>Congrats, You made it up to <span class="stats__scores">level ${difficulty}</span></p>
+           <P>and you did it in <span class="stats__scores">${sec} seconds</span>!</P>
+        `
         document.body.classList += "gameover"
     }
     console.log(lives)
@@ -163,6 +208,14 @@ function reset(){
             all_boxes[i].style.cursor = "auto"
             all_boxes[i].style.pointerEvents = "none";
         }
+
+        for(let i = 1; i <= 3; i++){
+        var hearts = document.getElementsByClassName(`heart${i}`)
+       
+        hearts[0].innerHTML =`
+        <svg class="heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon line" width="48" height="48"><path id="primary" d="M19.57,5.44a4.91,4.91,0,0,1,0,6.93L12,20,4.43,12.37A4.91,4.91,0,0,1,7.87,4a4.9,4.9,0,0,1,3.44,1.44,4.46,4.46,0,0,1,.69.88,4.46,4.46,0,0,1,.69-.88,4.83,4.83,0,0,1,6.88,0Z" style="fill: red; stroke: rgb(255, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></svg>
+        `
+         }
     
         setTimeout(() => {  
     
@@ -178,6 +231,7 @@ function reset(){
             correct_boxes = 0
             box_chosen = []
             lives = 3
+        
             
         
             difficulty = difficulty + difficulty_adjuster

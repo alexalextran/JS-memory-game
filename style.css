@@ -64,6 +64,30 @@
     
     }
 
+    #lives{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .heart__wrapper{
+        position: absolute;
+        display: flex;
+        top: 30px;
+    }
+
+    .heart{
+        fill: red;
+        width: 20px;
+        height: 20px;
+    }
+
+    #sec{
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+    }
+
     #game__body--wrapper{
         background-color: rgb(50,54,57);
         position: relative;
@@ -132,7 +156,7 @@
         flex-direction: column;
     }
 
-    .stats{
+    #stats{
         margin-top: 20px;
         margin-bottom: 10px;
     }
@@ -264,7 +288,7 @@
     }
 
     .special_number{
-        color: brown;
+        color: rgb(255,0,0);
         animation: fade 500ms;
         position: absolute;
        right: -55px;
@@ -274,7 +298,7 @@
     }
 
     .number{
-        color: brown;
+        color: rgb(255,0,0);
         animation: fade 500ms;
         position: absolute;
         right: -35px;
