@@ -73,12 +73,12 @@ Remaining Boxes <span class="number">${remaining_boxes}</span>
 
 
 
-console.log(lives)
+
 
 
 
    
-
+console.log(box_chosen)
 }
 
 
@@ -170,7 +170,7 @@ else{
 
     
     if(lives == 0){
-        console.log('lost')
+        
         stop()
         reset()
         document.getElementById("stats").innerHTML = 
@@ -180,7 +180,7 @@ else{
         `
         document.body.classList += "gameover"
     }
-    console.log(lives)
+    
 }
 
 document.getElementById("remaining").innerHTML = 
