@@ -8,6 +8,7 @@ var correct_boxes = 0
 const boxes = 36
 var level = 1
 var all_boxes =  document.getElementsByClassName('box')
+
 var lives = 3
 
 
@@ -45,6 +46,8 @@ function stop() {
 
 function startgame(){
 
+    document.getElementById("Start__game").innerHTML = ""
+    document.getElementById("Start__game").style.border = "none";
 
 box_random()
 remaining_boxes = difficulty_floor
