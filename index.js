@@ -36,7 +36,8 @@ function stop() {
 
 function startgame(){
 //ensures user cannot click anything when boxes are being chosen
- document.getElementById("Start__game").style.pointerEvents = "none";
+document.getElementById("Start__game").innerHTML=""
+ document.getElementById("Start__game").style.border = "none";
 
 //generates a random assortment of boxes based on difficulty
 box_random()
