@@ -1,5 +1,6 @@
 var page = 0
 var box_chosen = []
+var remaining_boxes = 0
 var difficulty = 1
 var difficulty_floor = Math.floor(difficulty)
 var difficulty_adjuster = 0.5
@@ -12,8 +13,13 @@ function startgame(){
 
 
 box_random()
+remaining_boxes = difficulty_floor
 
-console.log(level)
+document.getElementById("level").innerHTML = 
+`
+Level<span>${difficulty}</span>
+`
+
 
 
 
@@ -21,7 +27,12 @@ console.log(level)
 
         cursor()
      
-    },3500)
+    },2500)
+
+document.getElementById("remaining").innerHTML = 
+`
+Remaining Boxes<span>${remaining_boxes}</span>
+`
 
 
 
@@ -47,7 +58,7 @@ function box_random(){
 
       
           breakme:  if (condition == difficulty_floor){
-                
+                    
                 if(box_chosen.indexOf(i) != -1){
                     
                     break breakme
@@ -108,16 +119,24 @@ if (box_chosen.includes(box_clicked)){
     box_clicked_HTML[0].style.cursor = "auto"
     box_clicked_HTML[0].style.pointerEvents = "none";
     correct_boxes++
+    remaining_boxes--
 }
 else{
     box_clicked_HTML[0].style.backgroundColor = 'rgb(' + [242,0,0].join(',') + ')';
 }
 
+document.getElementById("remaining").innerHTML = 
+`
+Remaining Boxes<span>${remaining_boxes}</span>
+`
+
+
 
 
 if(correct_boxes == difficulty_floor){
     reset()
-    setTimeout(startgame, 4000)
+    setTimeout(startgame, 3000)
+   
 }
 
  
@@ -143,7 +162,8 @@ function reset(){
                 all_boxes[i].style.animationName = "none"
         
             }
-        
+            
+            remaining_boxes = 0
             page = 0
             correct_boxes = 0
             box_chosen = []

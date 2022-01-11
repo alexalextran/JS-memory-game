@@ -84,8 +84,12 @@
         justify-content: center;
         align-items: center;
         transition: all 500ms ;
-        animation: linear 5s ease-in;
+        animation: linear 3.5s ease-in;
         pointer-events: none;
+    }
+
+    .box:active{
+        transform: translateY(10px);
     }
 
     .pointer .box 
